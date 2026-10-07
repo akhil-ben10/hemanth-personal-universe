@@ -1,0 +1,338 @@
+.contact {
+  background: var(--orange);
+  border-top: 1px solid var(--ink);
+}
+.contact h2 {
+  font: 700 clamp(38px, 7.5vw, 108px)/1.06 var(--display);
+  letter-spacing: -0.05em;
+  margin: 65px 0 28px;
+}
+.contact h2 em {
+  font-style: normal;
+}
+.contact > p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.contact-number {
+  display: inline-block;
+  font: 600 clamp(30px, 5vw, 66px)/1.2 var(--display);
+  letter-spacing: -0.03em;
+  border-bottom: 2px solid var(--ink);
+  margin: 14px 0 30px;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.contact-actions a {
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  padding: 16px 24px;
+  font-size: 16px;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.contact-actions a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.gear-scene {
+  min-width: 0;
+}
+.gear-scene .game-footer {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.friends-film {
+  position: relative;
+  background: var(--ink);
+  height: 82svh;
+  min-height: 520px;
+  overflow: hidden;
+}
+.friends-film video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.65;
+}
+.friends-film:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, #171815c9);
+  pointer-events: none;
+}
+.friends-film-caption {
+  position: absolute;
+  left: 6%;
+  bottom: 10%;
+  color: var(--paper);
+  z-index: 1;
+}
+.friends-film-caption > span {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.friends-film-caption h3 {
+  font: 600 clamp(40px, 7vw, 100px)/1.08 var(--display);
+  letter-spacing: -0.04em;
+  margin: 22px 0 28px;
+}
+.friends-film .film-toggle {
+  color: var(--paper);
+  border-color: #eeeee680;
+  background: transparent;
+}
+.gallery-scroll {
+  height: 600vh;
+}
+.gallery-scroll .gallery button {
+  height: auto;
+}
+.gallery-scroll .gallery span {
+  line-height: 1.5;
+}
+.motion-cursor {
+  transition:
+    width 0.2s,
+    height 0.2s,
+    background 0.2s,
+    opacity 0.2s;
+}
+.contact .section-label {
+  border-color: #17181566;
+}
+@media (max-width: 600px) {
+  .gallery-scroll {
+    height: auto;
+  }
+  .friends-film {
+    height: 72svh;
+    min-height: 440px;
+  }
+  .friends-film-caption h3 {
+    font-size: clamp(36px, 10vw, 58px);
+  }
+  .contact h2 {
+    margin-top: 40px;
+  }
+  .contact > p {
+    font-size: 16px;
+  }
+  .contact-actions a {
+    padding: 14px 20px;
+  }
+  .gear-scene .game-footer {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .hero-scroll .hero .stage-note {
+    font-size: 11px;
+  }
+  .scroll-cue {
+    font-size: 11px;
+  }
+  .gallery-hint {
+    line-height: 1.5;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-scroll {
+    height: auto;
+  }
+  .contact-actions a {
+    transition: none;
+  }
+}
+
+/* Photo-backed project stories: keep the people visible above readable copy. */
+.project-dialog.has-project-photo {
+  max-width: 900px;
+  background-color: #171815;
+  background-image:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      #17181520 20%,
+      #171815e8 43%,
+      #171815 62%
+    ),
+    var(--project-photo);
+  background-size:
+    100% 680px,
+    100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #f3f2ea;
+  padding: 28px 38px 38px;
+  isolation: isolate;
+}
+.has-project-photo .project-story {
+  padding-top: clamp(220px, 30vw, 320px);
+}
+.has-project-photo .detail-label {
+  color: #dcf275;
+}
+.has-project-photo h2 {
+  color: #fff;
+  text-shadow: 0 2px 20px #0009;
+}
+.has-project-photo .detail-card {
+  border-color: #eeeee650;
+  background: #17181599;
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+.has-project-photo .detail-card h3 {
+  color: #dcf275;
+}
+.has-project-photo .detail-note {
+  color: #bfc2b7;
+}
+.has-project-photo .dialog-close {
+  background: #171815db;
+  color: #fff;
+  border: 1px solid #eeeee680;
+  backdrop-filter: blur(12px);
+}
+.friendship {
+  background: #dce6c7;
+}
+.friendship-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 6%;
+  align-items: center;
+  margin-top: 56px;
+}
+.friendship h2 {
+  font: 600 clamp(38px, 5vw, 76px)/1.08 var(--display);
+  letter-spacing: -0.045em;
+  margin: 0 0 30px;
+}
+.friendship h2 em {
+  font-style: normal;
+  color: #57703e;
+}
+.friendship-copy p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 490px;
+}
+.friendship-photo {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+.friendship-photo img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.5s;
+}
+.friendship-photo:hover img {
+  transform: rotate(-1deg) scale(0.98);
+}
+.friendship-photo span {
+  display: block;
+  padding-top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.gallery-scroll {
+  height: 560vh;
+}
+@media (max-width: 600px) {
+  .project-dialog.has-project-photo {
+    padding: 20px;
+    background-size:
+      100% 520px,
+      100% auto;
+  }
+  .has-project-photo .project-story {
+    padding-top: clamp(110px, 27vw, 170px);
+  }
+  .has-project-photo .detail-card {
+    padding: 16px;
+  }
+  .friendship-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 34px;
+  }
+  .friendship h2 {
+    font-size: clamp(36px, 10vw, 58px);
+  }
+  .friendship-copy p {
+    font-size: 16px;
+  }
+  .friendship-photo img {
+    aspect-ratio: 3/2;
+  }
+  .gallery-scroll {
+    height: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-scroll {
+    height: auto;
+  }
+  .friendship-photo img {
+    transition: none;
+  }
+}
+
+/* Keep the full group photograph visible, independent of the background overlay. */
+.project-dialog.has-project-photo {
+  padding: 0;
+  background: #171815;
+  overflow: auto;
+  max-width: 900px;
+}
+.has-project-photo .dialog-close {
+  margin: 14px 14px 14px auto;
+  top: 14px;
+}
+.has-project-photo .project-group-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 55svh;
+  object-fit: contain;
+  object-position: center;
+  background: #171815;
+  opacity: 1;
+  filter: none;
+}
+.has-project-photo .project-story {
+  padding: 32px 38px 38px;
+  background-image: linear-gradient(#171815ee, #171815f5), var(--project-photo);
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 600px) {
+  .project-dialog.has-project-photo {
+    padding: 0;
+    width: 94vw;
+  }
+  .has-project-photo .project-story {
+    padding: 24px 20px;
+  }
+  .has-project-photo .project-group-photo {
+    max-height: none;
+  }
+  .has-project-photo .dialog-close {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}

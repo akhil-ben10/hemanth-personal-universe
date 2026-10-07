@@ -1,0 +1,560 @@
+/* A continuous, scroll-led motion layer. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 100;
+  pointer-events: none;
+}
+.motion-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  transition:
+    width 0.2s,
+    height 0.2s,
+    background 0.2s,
+    opacity 0.2s;
+  mix-blend-mode: normal;
+}
+.motion-cursor.large {
+  width: 72px;
+  height: 72px;
+  background: #dcf275;
+}
+.motion-cursor.active {
+  opacity: 1;
+}
+.hero-scroll {
+  height: 190vh;
+  position: relative;
+}
+.hero-scroll .hero {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 770px;
+  overflow: hidden;
+  padding-top: 28px;
+}
+.hero-scroll .hero h1 {
+  margin-top: 45px;
+}
+.hero-scroll .hero .photo-stage {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  translate: -50% 0;
+  width: 75%;
+  max-width: 1050px;
+  margin: 0;
+  height: 340px;
+}
+.hero-scroll .hero .hero-title {
+  transform-origin: center top;
+  will-change: transform, opacity;
+}
+.hero-scroll .hero .photo {
+  will-change: transform;
+}
+.hero-scroll .hero .photo:hover {
+  z-index: 5;
+}
+.hero-scroll .hero .stage-note {
+  right: 0;
+  bottom: 0;
+}
+.hero-scroll .hero-bottom {
+  position: relative;
+  z-index: 4;
+}
+.motion-ready .hero h1 {
+  animation: hero-enter 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+.motion-ready .hero-top {
+  animation: fade-enter 1s 0.15s both;
+}
+.motion-ready .hero .photo {
+  animation: photo-enter 1.3s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+.motion-ready .hero .photo-b {
+  animation-delay: 0.1s;
+}
+.motion-ready .hero .photo-c {
+  animation-delay: 0.2s;
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 24px;
+  left: 4%;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 4;
+}
+.scroll-cue i {
+  width: 55px;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+  animation: cue 2s ease-in-out infinite;
+}
+.motion-ready .split-heading .motion-word {
+  display: inline-block;
+  transform: translateY(110%) rotate(3deg);
+  opacity: 0;
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s;
+  transition-delay: calc(var(--word-index) * 45ms);
+}
+.motion-ready .split-heading.in-view .motion-word {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+}
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+}
+.motion-ready .project-cover {
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.55s;
+  transform-style: preserve-3d;
+}
+.project-cover img {
+  transition: transform 0.7s;
+}
+.project:hover .food-cover img {
+  transform: scale(1.1);
+}
+.project-list:has(.project:hover) .project:not(:hover) {
+  opacity: 0.65;
+}
+.project {
+  transition: opacity 0.45s;
+}
+.project-caption h3 {
+  transition: transform 0.35s;
+}
+.project:hover .project-caption h3 {
+  transform: translateX(8px);
+}
+.project-open {
+  position: relative;
+  overflow: hidden;
+}
+.project-open:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.project:hover .project-open:after {
+  transform: scaleX(1);
+}
+.wisdom-scroll {
+  height: 190vh;
+  position: relative;
+  background: var(--ink);
+}
+.wisdom-scroll .wisdom {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  transform-origin: center;
+  will-change: clip-path;
+}
+.wisdom-scroll .wisdom > img {
+  will-change: transform;
+  object-position: center 48%;
+}
+.wisdom-scroll .wisdom-copy {
+  will-change: transform, opacity;
+  max-width: 100%;
+}
+.wisdom-scroll .wisdom h2 {
+  max-width: 1000px;
+}
+.gallery-scroll {
+  height: 235vh;
+  position: relative;
+}
+.gallery-scroll .moments {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  overflow: hidden;
+  padding-top: 45px;
+  padding-bottom: 35px;
+}
+.gallery-scroll .moments .section-title {
+  font-size: clamp(48px, 5.5vw, 90px);
+  margin: 30px 0;
+}
+.gallery-scroll .gallery {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  align-items: start;
+  will-change: transform;
+}
+.gallery-scroll .gallery button {
+  width: 32vw;
+  max-width: 530px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+.gallery-scroll .gallery img {
+  height: 48vh;
+  min-height: 300px;
+  max-height: 540px;
+}
+.gallery-scroll .gallery button:nth-child(even) {
+  margin-top: 40px;
+}
+.gallery-scroll .gallery button:nth-child(3) {
+  margin-top: 0;
+}
+.gallery-scroll .gallery img {
+  transition:
+    filter 0.5s,
+    transform 0.5s;
+}
+.gallery-scroll .gallery button:hover img {
+  filter: saturate(1.25);
+  transform: scale(0.98);
+}
+.gallery-scroll .gallery-hint {
+  margin-bottom: 30px;
+}
+.gallery-position {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  margin-top: 25px;
+}
+.gallery-position .track {
+  height: 2px;
+  background: #bdbeb6;
+  width: 130px;
+}
+.gallery-position .track span {
+  height: 100%;
+  background: var(--ink);
+  display: block;
+  transform: scaleX(0.25);
+  transform-origin: left;
+}
+.morning .journey-banner {
+  overflow: hidden;
+}
+.journey-banner img {
+  will-change: transform;
+}
+.loadout {
+  transition: box-shadow 0.6s;
+  background: radial-gradient(
+    ellipse at var(--glow-x, 50%) var(--glow-y, 50%),
+    #52643877,
+    transparent 65%
+  );
+}
+.loadout:before {
+  animation: loadout-ring 16s linear infinite;
+  border-radius: 48% 52% 56% 44%;
+  transform: rotate(-15deg);
+}
+.loadout model-viewer {
+  animation: gear-float 5s ease-in-out infinite;
+}
+.loadout model-viewer:nth-of-type(2) {
+  animation-delay: -2s;
+}
+.loadout model-viewer:nth-of-type(3) {
+  animation-delay: -3.5s;
+}
+.closing {
+  border-radius: 0;
+  will-change: border-radius;
+}
+.closing h2 > .closing-mark {
+  will-change: transform;
+}
+.round-link,
+.closing-bottom a {
+  will-change: transform;
+}
+.motion-ready .section-label span {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s,
+    transform 0.7s;
+}
+.motion-ready .section-label.in-view span {
+  opacity: 1;
+  transform: none;
+}
+.motion-ready .section-label.in-view span:last-child {
+  transition-delay: 0.15s;
+}
+.marquee div {
+  animation-duration: 45s;
+  will-change: transform;
+}
+header a:not(.brand) {
+  position: relative;
+}
+header nav a:after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+}
+header nav a:hover {
+  text-decoration: none;
+}
+header nav a:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    clip-path: inset(0);
+  }
+}
+@keyframes photo-enter {
+  from {
+    opacity: 0;
+    translate: 0 130px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes fade-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cue {
+  0%,
+  100% {
+    transform: scaleX(0.4);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+@keyframes gear-float {
+  0%,
+  100% {
+    translate: 0 -7px;
+  }
+  50% {
+    translate: 0 7px;
+  }
+}
+@keyframes loadout-ring {
+  to {
+    transform: rotate(345deg);
+  }
+}
+@media (max-width: 900px) {
+  .hero-scroll .hero {
+    min-height: 700px;
+  }
+  .hero-scroll .hero .photo-stage {
+    margin-top: 0;
+  }
+  .gallery-scroll .gallery button {
+    width: 43vw;
+  }
+  .hero-scroll .hero h1 {
+    margin-top: 70px;
+  }
+}
+@media (max-width: 600px) {
+  .motion-cursor {
+    display: none;
+  }
+  .hero-scroll {
+    height: 150svh;
+  }
+  .hero-scroll .hero {
+    height: 100svh;
+    min-height: 650px;
+    padding-top: 25px;
+  }
+  .hero-scroll .hero .photo-stage {
+    width: 88%;
+    bottom: 30px;
+    margin: 0;
+    height: 300px;
+  }
+  .hero-scroll .hero h1 {
+    margin-top: 75px;
+  }
+  .hero-scroll .hero .stage-note {
+    bottom: 15px;
+  }
+  .scroll-cue {
+    bottom: 12px;
+    left: 6%;
+    font-size: 10px;
+  }
+  .wisdom-scroll {
+    height: 145svh;
+  }
+  .wisdom-scroll .wisdom {
+    height: 100svh;
+    min-height: 600px;
+  }
+  .gallery-scroll {
+    height: auto;
+  }
+  .gallery-scroll .moments {
+    position: relative;
+    min-height: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .gallery-scroll .gallery {
+    width: auto;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px;
+    transform: none !important;
+    scrollbar-width: thin;
+  }
+  .gallery-scroll .gallery button {
+    width: 73vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+  .gallery-scroll .gallery img {
+    height: 420px;
+    min-height: 0;
+  }
+  .gallery-scroll .gallery button:nth-child(even) {
+    margin-top: 25px;
+  }
+  .gallery-scroll .gallery-position {
+    margin-top: 15px;
+  }
+  .gallery-scroll .gallery-hint {
+    margin-bottom: 20px;
+  }
+  .gallery-scroll .moments .section-title {
+    font-size: 12vw;
+    margin: 35px 0;
+  }
+  .loadout model-viewer {
+    animation-duration: 7s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll,
+  .wisdom-scroll,
+  .gallery-scroll {
+    height: auto;
+  }
+  .hero-scroll .hero,
+  .wisdom-scroll .wisdom,
+  .gallery-scroll .moments {
+    position: relative;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .hero-scroll .hero {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 30px;
+  }
+  .motion-cursor,
+  .scroll-cue {
+    display: none;
+  }
+  .motion-ready .split-heading .motion-word,
+  .motion-ready .section-label span {
+    opacity: 1;
+    transform: none;
+  }
+  .gallery-scroll .gallery {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: none !important;
+  }
+  .gallery-scroll .gallery button {
+    width: auto;
+  }
+  .hero-scroll .hero .photo-stage {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    translate: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .wisdom-scroll .wisdom > img,
+  .wisdom-copy,
+  .hero-title,
+  .hero-bottom,
+  .photo,
+  .journey-banner img {
+    transform: none !important;
+  }
+  .closing {
+    border-radius: 0 !important;
+  }
+}

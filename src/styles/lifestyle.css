@@ -1,0 +1,274 @@
+.gaming {
+  background: #0c1012;
+  color: #f0eee7;
+  position: relative;
+  overflow: hidden;
+}
+.gaming .section-label {
+  border-color: #3a4145;
+}
+.gaming-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  padding-top: 50px;
+}
+.gaming h2 {
+  font-family: var(--display);
+  font-size: clamp(65px, 9vw, 140px);
+  letter-spacing: -0.075em;
+  line-height: 0.86;
+  margin: 20px 0 35px;
+}
+.gaming h2 em {
+  color: #dcf275;
+}
+.gaming-copy > p {
+  max-width: 410px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #bec4c5;
+}
+.game-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.game-tags span {
+  font-size: 12px;
+  border: 1px solid #50595c;
+  padding: 10px 16px;
+  border-radius: 30px;
+}
+.loadout {
+  position: relative;
+  min-height: 540px;
+  background: radial-gradient(ellipse at center, #33423988, transparent 65%);
+  border: 1px solid #2b3336;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 0;
+}
+.loadout:before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid #dcf27525;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.loadout model-viewer {
+  width: 100%;
+  height: 260px;
+  --progress-bar-color: #dcf275;
+  touch-action: pan-y;
+}
+.loadout .rifle-view {
+  grid-column: 1/-1;
+  height: 320px;
+}
+.loadout-label {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  font-size: 12px;
+  color: #dcf275;
+  letter-spacing: 0.12em;
+}
+.loadout-help {
+  position: absolute;
+  bottom: 18px;
+  left: 24px;
+  font-size: 12px;
+  color: #bec4c5;
+}
+.game-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #3a4145;
+  padding-top: 25px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+.motion-toggle {
+  background: none;
+  border: 1px solid #6b7578;
+  color: white;
+  padding: 11px 16px;
+  border-radius: 25px;
+  font-size: 13px;
+}
+.morning {
+  background: #e5eacb;
+}
+.morning-heading {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 10%;
+  padding: 45px 0;
+}
+.morning h2 {
+  font-family: var(--display);
+  font-size: clamp(50px, 7vw, 100px);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  font-weight: 500;
+  margin: 0;
+}
+.morning h2 em {
+  color: #566638;
+}
+.morning-heading p {
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 430px;
+}
+.morning-routine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 15px 0 45px;
+}
+.morning-routine article {
+  border-top: 1px solid #7d8867;
+  padding-top: 20px;
+}
+.morning-routine span {
+  font-size: 12px;
+}
+.morning-routine h3 {
+  font-family: var(--display);
+  font-size: 28px;
+  margin: 18px 0 12px;
+  letter-spacing: -1px;
+}
+.morning-routine p {
+  line-height: 1.6;
+  color: #4c5540;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: auto;
+}
+.video-grid figure {
+  margin: 0;
+}
+.video-grid video {
+  width: 100%;
+  max-height: 590px;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  display: block;
+  background: #171815;
+}
+.video-grid figcaption {
+  font-size: 13px;
+  margin: 15px 0;
+}
+.journey-banner {
+  position: relative;
+  margin-top: 65px;
+}
+.journey-banner img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+.journey-banner p {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  font-family: var(--display);
+  font-size: clamp(35px, 5vw, 70px);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 0;
+  max-width: 550px;
+  color: #26332a;
+}
+.media-error {
+  display: none;
+  color: #dcf275;
+  font-size: 14px;
+  padding: 20px;
+  grid-column: 1/-1;
+}
+.media-error.visible {
+  display: block;
+}
+@media (max-width: 700px) {
+  .gaming-layout,
+  .morning-heading {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .gaming h2 {
+    font-size: 22vw;
+  }
+  .gaming-copy > p {
+    font-size: 16px;
+  }
+  .loadout {
+    min-height: 460px;
+  }
+  .loadout .rifle-view {
+    height: 270px;
+  }
+  .loadout model-viewer {
+    height: 200px;
+  }
+  .game-footer {
+    gap: 20px;
+    font-size: 12px;
+  }
+  .morning-routine {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .morning-routine article {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+  }
+  .morning-routine h3 {
+    margin: 0;
+    font-size: 25px;
+  }
+  .morning-routine p {
+    grid-column: 2;
+    margin: 0;
+  }
+  .morning-heading p {
+    font-size: 16px;
+  }
+  .video-grid {
+    gap: 12px;
+  }
+  .video-grid figcaption {
+    font-size: 12px;
+  }
+  .journey-banner {
+    margin-top: 35px;
+  }
+  .journey-banner img {
+    height: 390px;
+    object-position: 64% center;
+  }
+  .journey-banner p {
+    left: 20px;
+    top: 20px;
+    font-size: 38px;
+    max-width: 280px;
+  }
+  .loadout-help {
+    font-size: 11px;
+    left: 18px;
+  }
+}
