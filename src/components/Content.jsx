@@ -2,7 +2,6 @@ import React from "react";
 export const photos = [
   ["everyday-portrait.jpg", "A formal portrait"],
   ["curious-at-work.jpg", "In focus, at work"],
-  ["celebration-portrait.jpg", "Dressed for a celebration"],
   ["03-1000080360.jpg", "Among the trees"],
   ["01-1000245163.jpg", "A quiet moment with a book"],
   ["journey.jpg", "A wider perspective"],
