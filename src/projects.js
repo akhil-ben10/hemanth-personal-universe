@@ -36,7 +36,7 @@ export const projects = {
     cards: [
       [
         "Babycorn Pickle",
-        "Also called Vattakay Pickle. A different ingredient, a familiar love for bold flavour.",
+        " A different ingredient, a familiar love for bold flavour.",
       ],
       ["Malai Chicken", "A creamy experiment at the weekend table."],
       ["Smoked Malai Rice", "Comfort, creaminess and a smoky twist."],
